@@ -1,6 +1,5 @@
 .navContainer {
   color: white;
-
   position: absolute;
   width: 100vw;
   height: 75px;
@@ -13,11 +12,30 @@ h3 {
   position: absolute;
   width: 129px;
   height: 28px;
-  left: 80px;
+  left: 77px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 28px;
   color: #ffffff;
+}
+
+
+@media(max-width: 500px){
+  h3{
+    position: absolute;
+    width: 129px;
+    height: 28px;
+    left: 110px;
+  }
+}
+
+@media (min-width: 1973px) {
+  h3{
+    position: absolute;
+    width: 129px;
+    height: 28px;
+    left: 225px;
+  }
 }

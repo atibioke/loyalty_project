@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.css";
 import CardItem from "../cardItem/CardItem";
-// import { data } from '../data';
+
 import { useFetch } from "../../useFecth";
 
 const CardContainer = (cardItem) => {
@@ -43,7 +43,12 @@ const CardContainer = (cardItem) => {
       <header className="main-header">Latest news</header>
       <div className="card-wrapper">
         {cards.map((item) => {
-          return <CardItem key={new Date().getTime().toString() + ' ' + item.source.name} {...item} />;
+          return (
+            <CardItem
+              key={new Date().getTime().toString() + " " + item.source.name}
+              {...item}
+            />
+          );
         })}
       </div>
       {!loading && (
