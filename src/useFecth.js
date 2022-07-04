@@ -15,6 +15,7 @@ export const useFetch = () => {
     setValue(paginate(data.articles))
     setLoading(false)
   }
+  
 
   useEffect(() => {
     getProducts(url)
