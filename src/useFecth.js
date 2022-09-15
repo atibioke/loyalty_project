@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import paginate from "./utils";
 
-const url =
-  "https://newsapi.org/v2/everything?q=tesla&from=2022-06-04&sortBy=publishedAt&apiKey=ac322d07c7c348f881e4e8b608d1e1b3";
+const url = "https://www.anapioficeandfire.com/api/books";
 
 export const useFetch = () => {
   const [loading, setLoading] = useState(true);
@@ -11,7 +10,8 @@ export const useFetch = () => {
   const getProducts = async (url) => {
     const response = await fetch(url);
     const data = await response.json();
-    setValue(paginate(data.articles));
+
+    setValue(paginate(data));
     setLoading(false);
   };
 

@@ -1,29 +1,36 @@
-import React, { useState } from "react";
+import { useNavigate } from 'react-router';
 import "./style.css";
 
-const CardItem = ({ title, description, url, publishedAt, content }) => {
-  const [bookmark, setBookmark] = useState(false);
+const CardItem = ({ name, authors, isbn, released, publisher, index}) => {
+  let navigate = useNavigate();
+  const handleClick =  (index) => {
+
+    navigate(`/book/${index+1}`);
+
+  };
+
   return (
-    <div className="card-item-container">
-      
+    <div className="card-item-container" onClick={() => handleClick(index)}>
       <div className="card-details-container">
-       
         <div className="card-paragraph">
-        <header className="card-title">{title}</header>
-          <div className="card-details">{description}</div>
-          <div className="card-details card-detail">
+          <header className="card-title">{name}</header>
+          <div className="card-details">{authors}</div>
+          <div className="card-details">isbn: {isbn}</div>
+          <div className="card-details">Publisher: {publisher}</div>
+
+          {/* <div className="card-details card-detail">
             {content.split("[")[0]}
-          </div>
+          </div> */}
         </div>
 
         <div>
           <div className="third-section">
             <div className="card-items">
-              <a href={url} className="more-details">
+              {/* <a href={url} className="more-details">
                 Read full story
-              </a>
+              </a> */}
 
-              <div>
+              {/* <div>
                 <span
                   className="bookmark"
                   onClick={() => setBookmark(!bookmark)}
@@ -35,13 +42,13 @@ const CardItem = ({ title, description, url, publishedAt, content }) => {
                   />{" "}
                   Add to bookmarks
                 </span>
-              </div>
+              </div> */}
 
               <div>
                 <span className="time-container">
                   {Math.ceil(
                     new Date().getTime() / (1000 * 60) -
-                      new Date(publishedAt).getTime() / (1000 * 60)
+                      new Date(released).getTime() / (1000 * 60)
                   )}{" "}
                   mins ago
                 </span>

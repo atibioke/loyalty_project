@@ -8,6 +8,7 @@ const CardContainer = (cardItem) => {
   const { loading, value } = useFetch();
   const [page, setPage] = useState(0);
   const [cards, setCards] = useState([]);
+ 
 
   useEffect(() => {
     if (loading) return;
@@ -40,13 +41,15 @@ const CardContainer = (cardItem) => {
   return (
     <div className="card-container">
       <h1>{loading ? "loading..." : ""}</h1>
-      <header className="main-header">Latest news</header>
+      <header className="main-header">Latest books</header>
       <div className="card-wrapper">
-        {cards.map((item) => {
+        {cards.map((item, index) => {
           return (
             <CardItem
-              key={new Date().getTime().toString() + " " + item.source.name}
+              key={item.isbn}
+              index={index}
               {...item}
+           
             />
           );
         })}

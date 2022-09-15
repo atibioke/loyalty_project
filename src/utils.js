@@ -1,6 +1,6 @@
 const paginate = (posts) => {
-    const itemsPerPage = 6
-    const numberOfPages = Math.ceil(posts.length / itemsPerPage)
+    const itemsPerPage = 10;
+    const numberOfPages = Math.ceil(30 / itemsPerPage);
   
     const newposts = Array.from({ length: numberOfPages }, (_, index) => {
       const start = index * itemsPerPage
