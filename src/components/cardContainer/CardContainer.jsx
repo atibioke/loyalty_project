@@ -3,7 +3,7 @@ import "./style.css";
 import CardItem from "../cardItem/CardItem";
 
 import { useFetch } from "../../useFecth";
-import paginate from "../../utils";
+// import paginate from "../../utils";
 
 const CardContainer = (cardItem) => {
   const [page, setPage] = useState(1);
@@ -72,6 +72,7 @@ const CardContainer = (cardItem) => {
               </button>
             );
           })} */}
+          
           <button className="next-btn" onClick={nextPage}>
             <img src="/Vector-right.png" alt="vector" />
           </button>
