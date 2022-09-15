@@ -3,23 +3,24 @@ import "./style.css";
 import CardItem from "../cardItem/CardItem";
 
 import { useFetch } from "../../useFecth";
+import paginate from "../../utils";
 
 const CardContainer = (cardItem) => {
-  const { loading, value } = useFetch();
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
   const [cards, setCards] = useState([]);
- 
+  const { loading, value } = useFetch(page);
+ console.log(page, 'pages');
 
   useEffect(() => {
     if (loading) return;
-    setCards(value[page]);
+    setCards(value);
   }, [loading, page, value]);
 
   const nextPage = () => {
     setPage((oldPage) => {
       let nextPage = oldPage + 1;
-      if (nextPage > value.length - 1) {
-        nextPage = 0;
+      if (nextPage > 2) {
+        nextPage = 2;
       }
       return nextPage;
     });
@@ -28,7 +29,7 @@ const CardContainer = (cardItem) => {
     setPage((oldPage) => {
       let prevPage = oldPage - 1;
       if (prevPage < 0) {
-        prevPage = value.length - 1;
+        prevPage =  1;
       }
       return prevPage;
     });
@@ -42,6 +43,7 @@ const CardContainer = (cardItem) => {
     <div className="card-container">
       <h1>{loading ? "loading..." : ""}</h1>
       <header className="main-header">Latest books</header>
+
       <div className="card-wrapper">
         {cards.map((item, index) => {
           return (
@@ -59,7 +61,7 @@ const CardContainer = (cardItem) => {
           <button className="prev-btn" onClick={prevPage}>
             <img src="/Vector.png" alt="vector" />
           </button>
-          {value.map((item, index) => {
+          {/* {value.map((item, index) => {
             return (
               <button
                 key={index}
@@ -69,7 +71,7 @@ const CardContainer = (cardItem) => {
                 {index + 1}
               </button>
             );
-          })}
+          })} */}
           <button className="next-btn" onClick={nextPage}>
             <img src="/Vector-right.png" alt="vector" />
           </button>
@@ -80,3 +82,7 @@ const CardContainer = (cardItem) => {
 };
 
 export default CardContainer;
+
+
+
+

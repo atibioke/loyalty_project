@@ -45,6 +45,7 @@ const BookDetails = () => {
               <p>Country: {bookDetails.country}</p>
               <p>Num Of Pages: {bookDetails.numberOfPages}</p>
               <p>isbn: {bookDetails.isbn}</p>
+              <p>Characters: {bookDetails.characters.length}</p>
               <p>Media Type: {bookDetails.mediaType}</p>
 
               <div className="add-to-cart">

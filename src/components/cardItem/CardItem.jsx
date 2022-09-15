@@ -46,11 +46,10 @@ const CardItem = ({ name, authors, isbn, released, publisher, index}) => {
 
               <div>
                 <span className="time-container">
-                  {Math.ceil(
-                    new Date().getTime() / (1000 * 60) -
-                      new Date(released).getTime() / (1000 * 60)
-                  )}{" "}
-                  mins ago
+                 
+                  
+                  {new Date(released).getDate() }/{new Date(released).getMonth() + 1} /{new Date(released).getFullYear()} 
+                
                 </span>
               </div>
             </div>
